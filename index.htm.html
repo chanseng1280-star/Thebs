@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blox Fruits Shop - VETH THEAB</title>
+    <style>
+        body {
+            font-family: 'Battambang', sans-serif;
+            background-color: #0c1a2b;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            padding: 20px;
+            border-bottom: 2px solid #ffcc00;
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .card {
+            background: #162a44;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            border: 1px solid #2a5298;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+        .card img { width: 100%; height: auto; display: block; }
+        .info { padding: 15px; }
+        .price {
+            font-size: 24px;
+            color: #00ff88;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .sidebar-menu {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: #1a2a44;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid #2d4a77;
+            font-size: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .menu-btn:hover { background: #253d66; transform: translateX(5px); }
+        .auth-group { display: flex; gap: 10px; margin-top: 10px; }
+        .auth-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: #2a5298;
+            cursor: pointer;
+            border: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #162a44;
+            width: 90%;
+            max-width: 380px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            border: 1px solid #2a5298;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⚔️ BLOX FRUITS SHOP</h1>
+        <p>បញ្ចូលលុយ និងទិញអូតូ ២៤/៧</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://i.ibb.co/k6vmk0MM/photo.jpg" alt="Blox Fruit">
+            <div class="info">
+                <h3 style="color: #ffcc00;">Account Level Max (V4)</h3>
+                <div style="font-size: 14px; color: #ddd;">
+                    • ផ្លែឈើ: Kitsune (Equipped)<br>
+                    • ដាវ: Cursed Dual Katana<br>
+                    • លុយ: 1,000,000 | Fragment: 1,000
+                </div>
+                <div class="price">1.50$</div>
+                <button onclick="openModal('buyModal')" class="auth-btn" style="width:100%; background:#0088cc;">🛒 ទិញឥឡូវនេះ</button>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="#" class="menu-btn">🏠 Home</a>
+            <a href="#" class="menu-btn">📊 Dashboard</a>
+            <button onclick="openModal('balanceModal')" class="menu-btn">💳 Add Balance</button>
+            <a href="#" class="menu-btn">📜 Orders</a>
+            
+            <div class="auth-group">
+                <a href="#" class="auth-btn">➜ Login</a>
+                <a href="#" class="auth-btn" style="background: #333;">👤 Register</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="balanceModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('balanceModal')" style="position:absolute; right:20px; top:10px; font-size:24px; cursor:pointer;">&times;</span>
+            <h2 style="color:#00ff88;">Add Balance</h2>
+            <p style="font-size:13px; color:#ddd;">ស្កេន KHQR ដើម្បីបញ្ចូលលុយក្នុង Website</p>
+            
+            <div style="background:white; padding:10px; border-radius:15px; margin:15px 0;">
+                <img src="https://i.ibb.co/vx5zvsBD/image.png" style="width:100%; border-radius:10px;" alt="VETH THEAB QR">
+            </div>
+            
+            <p style="color:#ffcc00; font-size:14px; font-weight:bold;">ឈ្មោះ៖ VETH THEAB</p>
+            <div style="background:#0c1a2b; padding:10px; border-radius:10px; font-size:11px; color:#aaa; margin-top:10px;">
+                ⚠️ បញ្ជាក់៖ បន្ទាប់ពីបាញ់លុយរួច សូមរង់ចាំ 5-10 នាទី ប្រព័ន្ធនឹងបញ្ចូលលុយអោយអូតូ។
+            </div>
+            <button onclick="closeModal('balanceModal')" class="auth-btn" style="width:100%; margin-top:15px; background:#444;">បិទ</button>
+        </div>
+    </div>
+
+    <div id="buyModal" class="modal">
+        <div class="modal-content">
+            <h3 style="color:white;">Confirm Purchase</h3>
+            <p style="color:#ddd; font-size:14px;">តើអ្នកចង់ទិញ Account នេះមែនទេ?</p>
+            <div style="background:#0c1a2b; padding:15px; border-radius:10px; text-align:left; margin-bottom:15px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <span>តម្លៃ៖</span> <span style="color:#00ff88.50</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                    <span>សមតុល្យលុយ៖</span> <span style="color:#ff4444;">.00</span>
+                </div>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button onclick="alert('សមតុល្យលុយមិនគ្រប់គ្រាន់!')" class="auth-btn" style="background:#00ff88; color:#000;">យល់ព្រម</button>
+                <button onclick="closeModal('buyModal')" class="auth-btn" style="background:#444;">បោះបង់</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
